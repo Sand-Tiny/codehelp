@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class>
+/* 
+ * 创建日期 #now#
+ * 版权所有
+ */
+package #class.package#.dao;
+
+import java.util.List;
+import #class.full#;
+
+/**
+ * #table.desc# 服务 
+ * 
+ * @author #author#
+ * @version 1.0
+ */
+public interface #class.upname#Dao {
+
+    /**
+     * 新增 #table.desc#
+     * @param #class.name# #table.desc#
+     * @return int
+     * @throws Exception
+     */
+    int add(#class.upname# #class.name#);
+    
+    /**
+     * 批量新增 #table.desc#
+     * @param #class.name# #table.desc#
+     * @return int
+     * @throws Exception
+     */
+    int addBatch(List<#class.upname#> #class.name#s);
+    
+    /**
+     * 更新 #table.desc#
+     * @param #class.name# #table.desc#
+     * @return #table.desc#
+     * @throws Exception
+     */
+    int update(#class.upname# #class.name#);
+
+    /**
+     * 取得 #table.desc#
+     * @param #id.field# 主键ID
+     * @return #table.desc#
+     * @throws Exception
+     */
+    #class.upname# get(long #id.field#);
+
+    /**
+     * 查询 #table.desc#
+     * @param #class.name# 查询参数
+     * @throws Exception
+     */
+    List<#class.upname#> query (#class.upname# #class.name#);
+
+    /**
+     * 删除 #table.desc#
+     * @param #id.field# 主键ID
+     * @return
+     */
+    int delete(long #id.field#);
+}
+</class>

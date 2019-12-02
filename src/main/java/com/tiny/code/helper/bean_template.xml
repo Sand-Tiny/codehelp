@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain>
+    <class>
+/* 
+ * 创建日期 #now#
+ */
+package #class.package#.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+/**
+ * #table.desc#
+ * 
+ * @author #author#
+ * @version 1.0
+ */
+@Data
+@ApiModel("#table.desc#")
+public class #class.name# implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
+    #fields#
+    
+    #methods#
+}
+    </class>
+    
+    <field>
+    @ApiModelProperty(value = "#field.desc#")
+    private #field.type# #field.name#;
+    </field>
+
+    <method>
+    /** 取得 #field.desc# */
+    public #field.type# #method.get#() {
+        return #field.name#;
+    }
+
+    /** 设置 #field.desc# */
+    public void #method.set#(#field.type# #field.name#) {
+        this.#field.name# = #field.name#;
+    }
+    </method>
+</domain>

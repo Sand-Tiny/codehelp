@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <table>
+        select ifnull(table_comment, table_name) table_desc from information_schema.tables 
+        where table_name = '#table#' and table_schema='#database#'
+    </table>
+    
+    <column>
+        select 
+            column_name as name, 
+            data_type as type, 
+            ifnull( 
+                character_maximum_length, 
+                numeric_precision 
+            )as length, 
+            case when is_nullable = 'yes' then true else false end nullable, 
+            column_comment as `desc` 
+        from information_schema.columns 
+        where table_name = '#table#' 
+        and table_schema='#database#'
+        order by ordinal_position 
+    </column>
+</database>

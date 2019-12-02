@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class>
+/* 
+ * 创建日期 #now#
+ *
+ */
+package #class.package#.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import #class.package#.dao.#class.upname#Dao;
+import #class.full#;
+
+/**
+ * #table.desc# 服务 
+ * 
+ * @author #author#
+ * @version 1.0
+ */
+@Service
+public class #class.upname#Service {
+    
+    @Autowired
+    private #class.upname#Dao #class.name#Dao;
+    
+    /**
+     * 新增 #table.desc#
+     * @param bean #table.desc#
+     * @return int
+     */
+    public int add(#class.upname# #class.name#){
+        int row = #class.name#Dao.add(#class.name#);
+        return row;
+    }
+    
+    /**
+     * 新增 #table.desc#
+     * @param bean #table.desc#
+     * @return int
+     */
+    public int addBatch(List<#class.upname#> #class.name#s){
+        int row = #class.name#Dao.addBatch(#class.name#s);
+        return row;
+    }
+    
+    /**
+     * 编辑/更新 #table.desc#
+     * @param bean #table.desc#
+     * @return #table.desc#
+     */
+    public int update(#class.upname# #class.name#){
+        int row = #class.name#Dao.update(#class.name#);
+        return row;
+    }
+
+    /**
+     * 取得 #table.desc#
+     * @param #id.field# 主键ID
+     * @return #table.desc#
+     * @throws Exception
+     */
+    public #class.upname# get(long #id.field#){
+        #class.upname# result = #class.name#Dao.get(#id.field#);
+        return result;
+    }
+    
+    /**
+     * 查询 #table.desc#
+     * @param bean #table.desc#
+     * @throws Exception
+     */
+    public List<#class.upname#> query(#class.upname# #class.name#) {
+        List<#class.upname#> result = #class.name#Dao.query(#class.name#);
+        return result;
+    }
+
+    /**
+     * 删除 #table.desc#
+     * @param #id.field# 主键ID
+     * @return
+     */
+    public int delete(long #id.field#){
+        int row = #class.name#Dao.delete(#id.field#);
+        return row;
+    }
+}
+</class>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="#class.daoName#">
+
+    <resultMap id="#class.name#" type="#class.full#">
+#columns.mapping#
+    </resultMap>
+
+    <insert id="add" parameterType="#class.full#" useGeneratedKeys="true" keyProperty="#id.field#">
+       insert into
+            #table.name#
+        (
+            #columns.insert#
+        )
+       values
+        (
+            #fields.insert#
+        )
+    </insert>
+
+    <insert id="addBatch">
+       insert into
+            #table.name#
+        (
+            #columns.insert#
+        )
+       values
+       <foreach collection="#class.name#s" item="#class.name#" separator=",">
+        (
+            #fields.batchInsert#
+        )
+        </foreach>
+    </insert>
+    
+    <update id="update" parameterType="#class.full#">
+        update
+            #table.name#
+        <set>
+            #columns.update#
+        </set>
+        where
+            #id.column# = #{#id.field#}
+    </update>
+    
+    <select id="get" resultMap="#class.name#">
+        select
+            #columns.select#
+        from
+            #table.name#
+        where
+            #id.column#=#{#id.field#}
+    </select>
+    
+    <select id="query" resultMap="#class.name#">
+        select
+            #columns.select#
+        from
+            #table.name#
+        <where>
+            #columns.query#
+        </where>
+    </select>
+    
+    <delete id="delete">
+        delete from
+            #table.name#
+        where
+            #id.column# = #{#id.field#}
+    </delete>
+</mapper>
