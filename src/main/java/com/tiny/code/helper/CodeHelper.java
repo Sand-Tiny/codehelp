@@ -585,7 +585,7 @@ public class CodeHelper {
 
 		private boolean nullable;
 
-		private int length;
+		private String length;
 
 		public Column(ResultSet rs) throws Exception {
 			this.name = rs.getString("name");
@@ -593,10 +593,10 @@ public class CodeHelper {
 			this.type = rs.getString("type");
 			this.nullable = rs.getBoolean("nullable");
 			String length = rs.getString("length");
-			this.length = length != null ? Integer.parseInt(length) : 0;
+			this.length = length != null ? length : "0";
 		}
 
-		public Column(String name, String desc, String type, boolean nullable, int length) {
+		public Column(String name, String desc, String type, boolean nullable, String length) {
 			this.name = name;
 			this.desc = desc;
 			this.type = type;
@@ -620,7 +620,7 @@ public class CodeHelper {
 			return nullable;
 		}
 
-		public int getLength() {
+		public String getLength() {
 			return length;
 		}
 
