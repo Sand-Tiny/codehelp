@@ -531,6 +531,11 @@ public class CodeHelper {
 			conn = DriverManager.getConnection(p.getProperty("url"), p.getProperty("username"),
 					p.getProperty("password"));
 			rs = conn.prepareStatement(sql.toString()).executeQuery();
+			System.out.println(rs.getRow());
+			if (!rs.next()) {
+			    throw new Exception("数据库或表不正确, 请检查");
+			}
+			rs.previous();
 			while (rs.next()) {
 				Column col = new Column(rs);
 				rows.add(col);
